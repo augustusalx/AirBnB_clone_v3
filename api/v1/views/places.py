@@ -46,7 +46,7 @@ def place(city_id):
     methods=['GET', 'DELETE', 'PUT'],
     strict_slashes=False)
 def place_with_id(place_id):
-    """this handles places route with a parameter place_id"""
+    """handles places route with a parameter place_id"""
     place = storage.get("Place", place_id)
     if place is None:
         abort(404)
@@ -70,7 +70,7 @@ def place_with_id(place_id):
     methods=['POST'],
     strict_slashes=False)
 def places_search():
-    """to search for places using the posted http_body"""
+    """searches for the places using the posted http_body"""
     post_data = request.get_json()
     places_search = []
     if post_data is None or type(post_data) != dict:

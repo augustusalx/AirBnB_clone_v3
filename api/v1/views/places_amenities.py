@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-handles the REST API actions for Place Amenity
+it handles REST API actions for Place Amenity
 """
 from api.v1.views import app_views
 from os import getenv
@@ -18,7 +18,7 @@ from models.amenity import Amenity
     methods=['GET'],
     strict_slashes=False)
 def place_amenity(place_id):
-    """it handles amenities route"""
+    """handles the amenities route"""
     place = storage.get("Place", place_id)
     if place is None:
         abort(404)
@@ -55,7 +55,7 @@ def place_amenity_post(place_id, amenity_id):
     methods=['DELETE'],
     strict_slashes=False)
 def place_amenity_with_id(place_id, amenity_id):
-    """this handles amenities route with a parameter amenity_id"""
+    """handles amenities route with a parameter amenity_id"""
     amenity = storage.get("Amenity", amenity_id)
     place = storage.get("Place", place_id)
     if place is None or amenity is None:

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-to handle REST API actions for State
+handles the REST API actions for State
+
 """
 from api.v1.views import app_views
 from flask import jsonify
@@ -17,7 +18,7 @@ from models.review import Review
     methods=['GET', 'POST'],
     strict_slashes=False)
 def reviews(place_id):
-    """here handles states route"""
+    """handles the states route"""
     my_place = storage.get("Place", place_id)
     if my_place is None:
         abort(404)
@@ -52,7 +53,7 @@ def reviews(place_id):
     methods=['GET', 'DELETE', 'PUT'],
     strict_slashes=False)
 def specific_review(review_id):
-    """it handles states route with a parameter state_id"""
+    """handles states route with a parameter state_id"""
     review = storage.get("Review", review_id)
     if review is None:
         abort(404)
